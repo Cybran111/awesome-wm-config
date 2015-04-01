@@ -32,7 +32,7 @@ customization.option = {}
 customization.timer = {}
 
 customization.config.version = "1.5.9"
-customization.config.help_url = "https://github.com/pw4ever/awesome-wm-config/tree/" .. customization.config.version
+customization.config.help_url = "https://github.com/cybran111/awesome-wm-config/tree/" .. customization.config.version
 
 customization.default.property = {
     layout = awful.layout.suit.floating,
@@ -228,9 +228,9 @@ end
 
 --{{
 local tools = {
-    terminal = "sakura",
+    terminal = "roxterm",
     system = {
-        filemanager = "pcmanfm",
+        filemanager = "thunar",
     },
     browser = {
     },
@@ -238,10 +238,10 @@ local tools = {
     },
 }
 
-tools.browser.primary = os.getenv("BROWSER") or "chromium"
+tools.browser.primary = os.getenv("BROWSER") or "firefox"
 tools.browser.secondary = ({chromium="firefox", firefox="chromium"})[tools.browser.primary]
 tools.editor.primary = os.getenv("EDITOR") or "gvim"
-tools.editor.secondary = ({emacs="gvim", gvim="emacs"})[tools.editor.primary]
+tools.editor.secondary = ({emacs="gvim", gvim="gedit"})[tools.editor.primary]
 
 local myapp = nil
 do
@@ -846,12 +846,10 @@ end),
 
 awful.key({ modkey, }, "b", function ()
     awful.util.spawn(tools.browser.primary)
-    --awful.util.spawn('google-chrome-stable')
 end),
 
 awful.key({ modkey, "Shift" }, "b", function ()
     awful.util.spawn(tools.browser.secondary)
-    --awful.util.spawn('firefox')
 end),
 
 awful.key({ modkey, "Mod1", }, "v", function ()
@@ -925,7 +923,7 @@ awful.key({}, "XF86Display", function ()
 end),
 
 awful.key({}, "Print", function ()
-    awful.util.spawn("xfce4-screenshooter")
+    awful.util.spawn("shutter")
 end),
 
 awful.key({}, "XF86Launch1", function ()
